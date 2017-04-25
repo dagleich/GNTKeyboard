@@ -7,3 +7,4 @@ C:\Users\Daniel Gleich\Google Drive\Software\Code\GNTKeyboard\GNTKeyboard\obj\De
 C:\Users\Daniel Gleich\Google Drive\Software\Code\GNTKeyboard\GNTKeyboard\obj\Debug\GNTKeyboard.csproj.GenerateResource.Cache
 C:\Users\Daniel Gleich\Google Drive\Software\Code\GNTKeyboard\GNTKeyboard\obj\Debug\GNTKeyboard.exe
 C:\Users\Daniel Gleich\Google Drive\Software\Code\GNTKeyboard\GNTKeyboard\obj\Debug\GNTKeyboard.pdb
+C:\Users\Daniel Gleich\Google Drive\Software\Code\GNTKeyboard\GNTKeyboard\obj\Debug\GNTKeyboard.csprojResolveAssemblyReference.cache

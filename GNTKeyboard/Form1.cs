@@ -22,6 +22,11 @@ namespace WindowsFormsApplication1
         public XmlNodeList nodeList;
         public XmlNode root;
         public Dictionary<string, string> grWords = new Dictionary<string, string>();
+        public Dictionary<string, string> grWords1 = new Dictionary<string, string>();
+        public Dictionary<string, string> grWords2 = new Dictionary<string, string>();
+        public Dictionary<string, string> grWords3 = new Dictionary<string, string>();
+        public Dictionary<string, string> grWords4 = new Dictionary<string, string>();
+        public Dictionary<string, string> grWords5 = new Dictionary<string, string>();
         //public List<string> grWords = new List<string>();
 
         public Form1()
@@ -59,6 +64,7 @@ namespace WindowsFormsApplication1
                 else grWords.Add(word.FirstChild.InnerText, word.FirstChild.NextSibling.InnerText);
                 i = 1;
             }
+            
 
         }
 
@@ -171,13 +177,29 @@ namespace WindowsFormsApplication1
         private void loadComboBox ()
         {
             int i = 0;
-            foreach (KeyValuePair<string, string> grWord in grWords)
+            int nrCharTextBox = textBox1.Text.Length;
+            Dictionary<string, string> grWordsLocal = new Dictionary<string, string>();
+
+            if (nrCharTextBox == 1) { grWordsLocal = grWords; grWords1.Clear(); grWords2.Clear(); grWords3.Clear(); grWords4.Clear(); grWords5.Clear(); }
+            else if (nrCharTextBox == 2) { grWordsLocal = grWords1; grWords2.Clear(); grWords3.Clear(); grWords4.Clear(); grWords5.Clear(); }
+            else if (nrCharTextBox == 3) { grWordsLocal = grWords2; grWords3.Clear(); grWords4.Clear(); grWords5.Clear(); }
+            else if (nrCharTextBox == 4) { grWordsLocal = grWords3; grWords4.Clear(); grWords5.Clear(); }
+            else if (nrCharTextBox == 5) { grWordsLocal = grWords4; grWords5.Clear(); }
+            else if (nrCharTextBox >= 6) { grWordsLocal = grWords5; }
+
+
+            foreach (KeyValuePair<string, string> grWord in grWordsLocal)
             {
                 if ((grWord.Key.IndexOf(textBox1.Text) > -1) || (grWord.Value.IndexOf(textBox1.Text) > -1))
                 {
-                    comboBox1.Items.Add(grWord.Value);
+                    if (nrCharTextBox == 1) grWords1.Add(grWord.Key, grWord.Value);
+                    else if (nrCharTextBox == 2) grWords2.Add(grWord.Key, grWord.Value);
+                    else if (nrCharTextBox == 3) grWords3.Add(grWord.Key, grWord.Value);
+                    else if (nrCharTextBox == 4) grWords4.Add(grWord.Key, grWord.Value);
+                    else if (nrCharTextBox == 5) grWords5.Add(grWord.Key, grWord.Value);
+
                     i++;
-                    if (i == 10) break;
+                    if (i <= 10) comboBox1.Items.Add(grWord.Value);
                 }
             }
 
